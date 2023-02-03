@@ -1,0 +1,34 @@
+/* --------------------------------
+ Allgemeine CSS-Datei für Modals
+ -------------------------------- */
+.modal_form {
+    background: white;
+    max-width: 25rem;
+    margin: auto;
+    padding: 1rem 2rem 2rem;
+}
+
+/* For Mobile/tablets */
+@media screen and (max-width: 720px) {
+    .modal_form {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+
+.modal_form h1 {
+    color: #0079a4;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.modal_form .modal-body p {
+    color: black;
+    width: 100%;
+    margin: 0.3rem 0 0rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+}
+

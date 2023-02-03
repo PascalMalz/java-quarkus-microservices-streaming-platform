@@ -1,0 +1,83 @@
+/* --------------------------------
+ CSS-Datei für das Login-Modal
+ -------------------------------- */
+
+.login_form {
+    background: white;
+    max-width: 400px;
+    margin: auto;
+    padding: 1rem 2rem 1rem;
+}
+
+/* Für Smarthphones/Tablets*/
+@media screen and (max-width: 720px) {
+    .login_form {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+
+/*Modal Header*/
+.login_form h1 {
+    color: #0079a4;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.login_form #img_logo {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+/*Modal Inputs*/
+.login_form input {
+    background: #e6e8ed;
+    width: 100%;
+    margin: 0.3rem 0 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    border: none;
+}
+
+.login_form label {
+    color: black;
+    font-weight: bold;
+    padding-left: 0.3rem;
+}
+
+/*Login Button*/
+.login_form button {
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    background: #0079a4;
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    margin-top: 3rem;
+}
+#loginButton:hover {
+	opacity: 0.8;
+}
+
+/*Link für Anmeldedaten*/
+.login_form .login_register {
+    margin-top: 1rem;
+    color: #b3b3b3;
+    text-align: center;
+}
+
+.login_form .login_register a {
+    color: #0079a4;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.login_form .login_register a:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

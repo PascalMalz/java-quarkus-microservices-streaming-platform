@@ -1,0 +1,13 @@
+de\ostfalia\wsamis\controller\FilmController.class
+de\ostfalia\wsamis\repository\FavouriteRepository.class
+de\ostfalia\wsamis\service\FilmService.class
+de\ostfalia\wsamis\businessobject\Genre.class
+de\ostfalia\wsamis\businessobject\Favourite_.class
+de\ostfalia\wsamis\businessobject\Favourite.class
+de\ostfalia\wsamis\service\FavouriteService.class
+de\ostfalia\wsamis\businessobject\FavouriteId.class
+de\ostfalia\wsamis\businessobject\Film_.class
+de\ostfalia\wsamis\businessobject\FavouriteJSON.class
+de\ostfalia\wsamis\businessobject\Film.class
+de\ostfalia\wsamis\repository\FilmRepository.class
+de\ostfalia\wsamis\controller\FavouriteController.class

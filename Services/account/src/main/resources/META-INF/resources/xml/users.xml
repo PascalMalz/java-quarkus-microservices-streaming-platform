@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<users>
+    <user>
+        <email>test</email>
+        <password>test</password>
+    </user>
+    <user>
+        <email>test2</email>
+        <password>test</password>
+    </user>
+    <user>
+        <email>trailerwatch@tw.de</email>
+        <password>trailer123</password>
+    </user>
+</users>

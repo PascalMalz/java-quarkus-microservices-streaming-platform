@@ -1,0 +1,114 @@
+/* --------------------------------
+ CSS-Datei für die Playeransicht
+ -------------------------------- */
+
+#player {
+	float: left;
+	width: 70%;
+	height: 620px;
+}
+
+#info {
+	width: 30%;
+	height: 620px;
+	float: left;
+}
+
+.carouselContainer .carouselHorizontal {
+	width: 100%;
+	float: left;
+	user-select: none;
+	-moz-user-select: none;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+}
+
+/* --------------------------------
+ Filminformationskomponenten
+ -------------------------------- */
+.infobarEntry {
+   	display: inline-grid;
+    height: 600px;
+    grid-row-gap: 5%;
+    grid-template-columns: 50% 50%;
+    color: white;
+    padding: 10px;
+}
+
+.infobarKey {
+	overflow: auto;
+	font-weight: bold;
+}
+
+.infobarValue {
+    overflow: auto;
+}
+
+#videoPlayer {
+	outline: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* --------------------------------
+ Responsive Settings
+ -------------------------------- */
+
+@media only screen and (max-width: 1149px) {
+
+	#info {
+		float: none;
+		width: 100%;
+	}
+
+	#player {
+		width: 100%;
+		float: none;
+	}
+
+	.carouselContainer .carouselHorizontal {
+		float: both;
+	}
+}
+
+@media only screen and (max-width: 951px) {
+	#player {
+		height: 534px;
+	}
+}
+
+@media only screen and (max-width: 851px) {
+	#player {
+		height: 478px;
+	}
+}
+
+@media only screen and (max-width: 751px) {
+	#player {
+		height: 422px;
+	}
+}
+
+@media only screen and (max-width: 651px) {
+	#player {
+		height: 366px;
+	}
+}
+
+@media only screen and (max-width: 551px) {
+	#player {
+		height: 309px;
+	}
+}
+
+@media only screen and (max-width: 451px) {
+	#player {
+		height: 253px;
+	}
+}
+
+@media only screen and (max-width: 351px) {
+	#player {
+		height: 197px;
+	}
+}

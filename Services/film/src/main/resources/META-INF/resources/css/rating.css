@@ -1,0 +1,26 @@
+.fa {
+  font-size: 25px;
+  color: white;
+}
+
+.checked {
+  color: orange;
+}
+
+/* Three column layout */
+.side {
+  float: left;
+  width: 15%;
+  margin-top: 10px;
+}
+
+.middle {
+  float: left;
+  width: 70%;
+  margin-top: 10px;
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+}

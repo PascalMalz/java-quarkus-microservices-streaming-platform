@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Comments REST service</title>
+
+    <link rel="stylesheet" href="css/comment.css">
+
+</head>
+
+<body>
+
+    <script>
+
+        function loadCommentsForFilm() {
+
+            // alle Filme aus der XML-Datei laden
+            let commentsRequest = new XMLHttpRequest();
+
+            commentsRequest.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    let comments = JSON.parse(commentsRequest.responseText);
+
+                    if (comments === undefined || comments.length === 0) {
+                        console.log("no comments found");
+                        console.log(commentsRequest.responseText);
+                    } else {
+
+                        if (comments.length !== 0) {
+                            buildCommentSection(comments);
+                        }
+
+
+                    }
+                } else {
+                    //error message
+                    console.log(commentsRequest.responseText);
+                }
+            }
+
+            let filmId = "4f9f9c27-98d4-44f0-a464-cbb5b80c6c1b";
+            commentsRequest.open("GET", "http://localhost:8083/comments/?filmId=" + filmId, true);
+            commentsRequest.send();
+        }
+
+        function buildCommentSection(comments) {
+
+            let commentArea = document.getElementById("commentArea");
+
+            for (let i = 0; i < comments.length; i++) {
+                //TODO eigene Kommentare hervorheben
+
+                let commentDiv = document.createElement("div");
+                commentDiv.classList.add("comment");
+
+                let commentText = document.createElement("textarea");
+                commentText.classList.add("commentText");
+                commentText.setAttribute("disabled", "true");
+                commentText.innerHTML = comments[i].text;
+                commentDiv.appendChild(commentText);
+
+                console.log("Text: " + comments[i].text);
+                commentArea.appendChild(commentDiv);
+            }
+        }
+
+        function addCommentForAFilm() {
+            let addCommentRequest = new XMLHttpRequest();
+
+            const url = "http://localhost:8082/comments"
+            const filmId = "4f9f9c27-98d4-44f0-a464-cbb5b80c6c1b";
+            const userId = "4f9f9c27-98d4-44f0-a464-cbb5b80c6c1b";
+
+            addCommentRequest.open("POST", url, true);
+            addCommentRequest.setRequestHeader("Content-Type", "application/json")
+
+            addCommentRequest.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    //FIXME remove
+                    console.log("Kommentar erfolgreich gespeichert")
+
+                    //Todo reload page
+                    console.log(addCommentRequest.responseText);
+                } else {
+                    console.log("Kommentar failed")
+                    console.log(addCommentRequest.responseText);
+                }
+            }
+
+            let commentText = document.getElementById("addCommentTextArea").value.trim();
+            let jsonComment = JSON.stringify({ "userId": filmId, "filmId": userId, "text": commentText });
+            addCommentRequest.send(jsonComment);
+        }
+
+    </script>
+    <div>
+        <div class="comment">
+            <textarea id="addCommentTextArea" rows="5" cols="50"
+                placeholder="Schreibe hier deinen Kommentar..."></textarea>
+        </div>
+
+        <button id="sendCommentButton" onclick="addCommentForAFilm()">Send Comment</button>
+        <div class="commentArea" id="commentArea"></div>
+    </div>
+
+    <script>loadCommentsForFilm();</script>
+
+</body>
+
+</html>

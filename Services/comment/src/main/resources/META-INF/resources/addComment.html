@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Comment REST service</title>
+</head>
+
+<body>
+
+    <script>
+
+        function addCommentForAFilm() {
+            let addCommentRequest = new XMLHttpRequest();
+
+            const url = "http://localhost:8082/comments"
+            const filmId = "4f9f9c27-98d4-44f0-a464-cbb5b80c6c1b";
+            const userId = "4f9f9c27-98d4-44f0-a464-cbb5b80c6c1b";
+
+            addCommentRequest.open("POST", url, true);
+            addCommentRequest.setRequestHeader("Content-Type", "application/json")
+
+            addCommentRequest.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    //FIXME remove
+                    console.log("Kommentar erfolgreich gespeichert")
+
+                    //Todo reload page
+                    console.log(addCommentRequest.responseText);
+                } else {
+                    console.log("Kommentar failed")
+                    console.log(addCommentRequest.responseText);
+                }
+            }
+
+            let commentText = document.getElementById("commentTextArea").value.trim();
+            let jsonComment = JSON.stringify({ "userId": filmId, "filmId": userId, "text": commentText });
+            addCommentRequest.send(jsonComment);
+        }
+
+
+    </script>
+
+    <label for="commentTextArea">Kommentar eingeben:</label>
+    <textarea id="commentTextArea" name="commentTextArea" rows="4" cols="50"
+        placeholder="Schreibe hier deinen Kommentar..."></textarea>
+    <button onclick="addCommentForAFilm()">Save Comment</button>
+
+</body>
+
+</html>

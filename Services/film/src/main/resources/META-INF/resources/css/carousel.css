@@ -1,0 +1,459 @@
+/* --------------------------------
+ Carousel Slide Komponenten
+ -------------------------------- */
+.carouselSlide {
+	display: none;
+}
+
+
+/* --------------------------------
+ Prev / Next Button Komponenten
+ -------------------------------- */
+.prev,
+.next {
+	cursor: pointer;
+	width: auto;
+	height: 50%;
+	padding-left: 16px;
+	padding-right: 16px;
+	position: absolute;
+	color: white;
+	font-weight: bold;
+	font-size: 1.5rem;
+	transition: 0.6s ease;
+	user-select: none;
+	-moz-user-select: none;
+	margin: auto;
+	top: 50%;
+	bottom: 50%;
+	display: flex;
+}
+
+
+.next {
+	right: 0;
+	border-radius: 5px 0px 0px 5px;
+}
+
+.prev {
+	left: 0;
+	border-radius: 0px 5px 5px 0px;
+}
+
+
+.prev:hover,
+.next:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* --------------------------------
+ Fade Animation Komponenten
+ -------------------------------- */
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+	from {
+		opacity: .1
+	}
+
+	to {
+		opacity: 1
+	}
+}
+
+@keyframes fade {
+	from {
+		opacity: .1
+	}
+
+	to {
+		opacity: 1
+	}
+}
+
+/* --------------------------------
+ Carousel Horizontal und Vertikal Komponenten
+ -------------------------------- */
+.carouselHorizontalPreviewBackground,
+.carouselVerticalPreviewBackground {
+	background-color: rgba(0, 0, 0, 0.8);
+	position: absolute;
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	opacity: 0;
+	cursor: pointer;
+}
+
+
+.carouselHorizontalElement,
+.carouselVerticalElement {
+	position: relative;
+	width: 20%;
+	float: left;
+	max-height: 100%;
+}
+
+.carouselImage {
+	width: 100%;
+	display: block;
+	height: auto;
+}
+
+.carouselPreviewText {
+	margin: calc(0.3em + 0.5vw);
+	color: white;
+	font-size: calc(0.8em + 0.5vw);
+}
+
+.carouselPreviewTextHead {
+	font-weight: bold;
+}
+
+.carouselPreviewTextBody {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: calc(2em + 0.5vw);
+}
+
+.carouselPreviewTextFooter {
+	font-size: calc(1em + 1vw);
+	position: absolute;
+	bottom: 0.3em;
+	right: 0.4em;
+}
+
+.show {
+	opacity: 1;
+	transition: opacity 1000ms;
+}
+
+.hide {
+	opacity: 0;
+	transition: opacity 1000ms;
+}
+
+/* --------------------------------
+ Carousel Vertikal Komponenten
+ -------------------------------- */
+.carouselVerticalElement {
+	align-self: center;
+}
+
+.carouselVerticalPreviewBackground .carouselPreviewText .carouselPreviewTextHead {
+	display: none !important;
+}
+
+.carouselVerticalHead {
+	float: left;
+	margin-left: 1em;
+	font-size: 2em;
+	font-weight: bold;
+	margin-right: 0.5em;
+	width: 70%;
+}
+
+.carouselVerticalInfoBox {
+	display: block;
+	width: 100%;
+	padding-right: 1em;
+	position: relative;
+}
+
+.carouselVerticalInfoBoxInner {
+	position: relative;
+	margin-top: 0.5rem;
+	margin-left: 1rem;
+	max-width: 80%;
+}
+
+.carouselVerticalInfoTitle {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.carouselVerticalInfoDescription {
+	font-size: 1rem;
+	margin-top: 0.5rem;
+}
+
+.carouselVerticalInfoTime {
+	margin-top: 0.5rem;
+	margin-left: 1rem;
+}
+
+.carouselVerticalInfoTimeBox {
+	position: absolute;
+	top: 0em;
+	right: 1em;
+	font-size: 1.5em;
+}
+
+.carouselVerticalControlBox {
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
+	display: flex;
+	font-weight: bold;
+}
+
+.carouselVerticalControl {
+	font-size: 1em;
+	text-align: center;
+	border-radius: 5px;
+	padding: 0.5em;
+	transition: all 0.6s ease;
+	cursor: pointer;
+}
+
+.carouselVerticalControlPlay {
+	background-color: #0079a4;
+}
+
+.carouselVerticalControlPlay:hover {
+	background-color: #00b0f0;
+}
+
+.carouselVerticalControlDelete {
+	background-color: #7f0000;
+	margin-left: 1em;
+}
+
+.carouselVerticalControlDelete:hover {
+	background-color: #cc0000;
+}
+
+.carouselVerticalSort {
+	display: flex;
+	justify-content: flex-end;
+	margin: 1em 1em 0 0;
+	align-items: center;
+	font-weight: bold;
+	user-select: none;
+	-moz-user-select: none;
+}
+
+.carouselVerticalSortButton {
+	margin-left: 1em;
+	background-color: transparent;
+	border: 1px solid white;
+	position: relative;
+}
+
+.carouselVerticalSortButton:hover {
+	border: 1px solid grey;
+}
+
+.carouselVerticalSortButtonActiv {
+	background-color: #0079a4;
+}
+
+.carouselVerticalSortButtonActiv:hover {
+	background-color: #00b0f0;
+}
+
+.carouselVerticalHorizontalLine {
+	margin-top: 1.5em;
+	margin-bottom: 0.4em;
+	width: 100%;
+	border-bottom: 1px solid #191919;
+}
+
+/* --------------------------------
+ Keine Suchergebnisse Komponenten
+ -------------------------------- */
+.listNoElementBox {
+	width: 100%;
+	text-align: center;
+	margin-top: 3em;
+	margin-bottom: 3em;
+	font-weight: bold;
+}
+
+.listNoElementSmiley {
+	font-size: 5rem;
+}
+
+.listNoElementText {
+	font-size: 2em;
+	margin-top: 0.8em;
+}
+
+.listNoElementSuggestion {
+	margin-top: 1em;
+	margin-left: 1em;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+/* --------------------------------
+ Responsive Komponenten
+ -------------------------------- */
+
+@media only screen and (max-width: 1600px) {
+/* --------------------------------
+ Carousel Horizontal Komponenten
+ -------------------------------- */
+	[class='carouselHorizontalElement']:last-of-type {
+		display: none;
+	}
+
+	.carouselHorizontalElement {
+		width: 25%;
+	}
+
+/* --------------------------------
+ Carousel Vertikal Komponenten
+ -------------------------------- */
+	.carouselVerticalHead {
+		width: 65%;
+	}
+}
+
+@media only screen and (max-width: 1400px) {
+/* --------------------------------
+ Carousel Vertikal Komponenten
+ -------------------------------- */
+	.carouselVerticalControlBox {
+		flex-direction: column;
+		bottom: 0em;
+	}
+
+	.carouselVerticalControlDelete {
+		margin-top: 0.5em;
+		margin-left: 0;
+	}
+
+	.carouselVerticalHead {
+		width: 60%;
+	}
+}
+
+
+@media only screen and (max-width: 1200px) {
+/* --------------------------------
+ Carousel Horizontal Komponenten
+ -------------------------------- */
+	[class='carouselHorizontalElement']:nth-last-of-type(2) {
+		display: none;
+	}
+
+	.carouselHorizontalElement {
+		width: 33.3333%;
+	}
+
+	.carouselPreviewTextFooter {
+		font-size: calc(1.5em + 1vw);
+	}
+
+/* --------------------------------
+ Carousel Vertikal Komponenten
+ -------------------------------- */
+	.carouselVerticalInfoTimeBox {
+		display: none;
+	}
+
+	.carouselVerticalSort {
+		display: grid;
+		grid-row-gap: 0.5em;
+
+	}
+
+	.carouselVerticalSortButton {
+		grid-column-start: 2;
+		grid-column-end: 2;
+		float: left;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+/* --------------------------------
+ Carousel Horizontal Komponenten
+ -------------------------------- */
+	[class='carouselHorizontalElement']:nth-last-of-type(2),
+	[class='carouselHorizontalElement']:nth-last-of-type(1) {
+		display: block;
+	}
+
+	.carouselSlide {
+		display: block !important;
+	}
+
+	.carouselHorizontalElement {
+		position: relative;
+		float: none;
+		width: 100%;
+		margin-bottom: 1em;
+	}
+
+	.carouselPreviewText {
+		margin: calc(0.2em + 0.5vw);
+		font-size: calc(2em + 0.5vw);
+	}
+
+	.prev,
+	.next {
+		display: none;
+	}
+
+/* --------------------------------
+ Carousel Vertikal Komponenten
+ -------------------------------- */
+	.carouselVerticalInfoBox {
+		width: 95%;
+		align-self: center;
+	}
+
+	.carouselVerticalElement {
+		width: auto;
+	}
+}
+
+@media only screen and (max-width: 750px) {
+/* --------------------------------
+ Carousel Vertikal Komponenten
+ -------------------------------- */
+	.carouselVerticalInfoBoxInner {
+		max-width: 100%;
+	}
+
+	.carouselVerticalControlBox {
+		position: relative;
+		flex-direction: row;
+		width: 90%;
+		justify-content: flex-end;
+		margin-top: 0.5em;
+		margin-left: 4em;
+	}
+
+	.carouselVerticalControlDelete {
+		margin-top: 0;
+		margin-left: 1em;
+	}
+
+	.carouselVerticalSort {
+		display: inline-flex;
+		margin: 1em 1em 0 1em;
+	}
+
+	.carouselVerticalHeadBox {
+		text-align: center;
+		margin-top: 1em;
+	}
+
+	.carouselVerticalHead {
+		float: none;
+		width: 100%;
+		margin: 0;
+
+	}
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rating REST service</title>
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/rating.css">
+</head>
+
+<body>
+
+    <script>
+
+        function loadRatingForFilm() {
+
+            let ratingRequest = new XMLHttpRequest();
+            // Fehlermeldung für den AJAX-Aufruf
+
+            ratingRequest.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    let averageRating = JSON.parse(ratingRequest.responseText);
+
+                    if (averageRating === undefined || averageRating.length === 0) {
+                        console.log("no rating found");
+                        console.log(ratingRequest.responseText);
+                    } else {
+
+                        // print out all comments
+                        console.log(averageRating);
+                        buildRatingSection(averageRating);
+                    }
+                } else {
+                    console.log(ratingRequest.responseText);
+                }
+            }
+
+            let filmId = "2286e936-344f-46a4-b294-1755592e4144";
+            ratingRequest.open("GET", "http://localhost:8083/rating/?filmId=" + filmId, true);
+            ratingRequest.send();
+        }
+
+        function buildRatingSection(averageRating) {
+
+            let averageRatingText = document.getElementById("averageRating");
+            averageRatingText.innerHTML = "Nutzerbewertung: " + averageRating + " / 5";
+        }
+
+
+        function addRatingToAFilm() {
+            let addRatingRequest = new XMLHttpRequest();
+
+            const url = "http://localhost:8080/rating"
+            const filmId = "2286e936-344f-46a4-b294-1755592e4144";
+            const userId = "2286e936-344f-46a4-b294-1755592e4144";
+
+            addRatingRequest.open("POST", url, true);
+            addRatingRequest.setRequestHeader("Content-Type", "application/json")
+
+            addRatingRequest.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+
+                    //Todo reload page
+                    console.log(addRatingRequest.responseText);
+                } else {
+                    console.log(addRatingRequest.responseText);
+                }
+            }
+
+            let ratingValue = document.getElementById("enterRating").value;
+            let jsonRating = JSON.stringify({ "filmId": filmId, "userId": userId, "value": ratingValue });
+            addRatingRequest.send(jsonRating);
+        }
+
+    </script>
+
+    <label for="enterRating">Rating (between 1 and 5):</label>
+    <input type="number" id="enterRating" name="enterRating" min="1" max="5">
+    <button onclick="addRatingToAFilm()">Add Rating</button>
+
+    <span class="heading">User Rating</span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <p id="averageRating"></p>
+    <hr style="border:3px solid #f1f1f1">
+
+</body>
+
+<script>loadRatingForFilm();</script>
+
+</html>

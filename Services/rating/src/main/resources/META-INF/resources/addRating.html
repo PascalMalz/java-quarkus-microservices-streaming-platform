@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+    <script>
+
+        function addRatingToAFilm() {
+            let addRatingRequest = new XMLHttpRequest();
+
+            const url = "http://localhost:8083/rating"
+            const filmId = filmid;
+            const userId = getCookie("user");
+
+            addRatingRequest.open("POST", url, true);
+            addRatingRequest.setRequestHeader("Content-Type", "application/json")
+
+            addRatingRequest.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+
+                    //Todo reload page
+                    console.log(addRatingRequest.responseText);
+                } else {
+                    console.log(addRatingRequest.responseText);
+                }
+            }
+
+            let ratingValue = document.getElementById("rating").value;
+            let jsonRating = JSON.stringify({ "filmId": filmId, "userId": userId, "value": ratingValue });
+            addRatingRequest.send(jsonRating);
+        }
+
+
+    </script>
+
+
+
+    <!-- <label for="rating">Rating (between 1 and 5):</label>
+    <input type="number" id="rating" name="rating" min="1" max="5">
+    <button onclick="addRatingToAFilm()">Add Rating</button> -->
+
+</body>
+
+</html>

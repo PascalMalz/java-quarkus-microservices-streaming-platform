@@ -1,0 +1,27 @@
+<div class="login_form">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <img src="img/Logo.png" id="img_logo" alt="Logo">
+        </div>
+        <h1>Account Details</h1>
+        <form class="modal-body">
+            <p>Jetzt registrieren</p>
+            <label for="email">E-Mail</label>
+            <input type="text" name="email" id="email" placeholder="E-Mail-Adresse" required />
+            <label for="password">Passwort</label>
+            <input type="password" name="password" id="password" placeholder="Passwort" required />
+            <label for="password">Passwort wiederholen</label>
+            <input type="password" name="password_repeat" id="password_repeat" placeholder="Passwort" required />
+            <button onclick="login()" id="loginButton">Registrierung bestätigen</button>
+            <p class="login_register" id>Zurück zum Login: <a id="login_link">Klicke hier!</a></p>
+        </form>
+    </div>
+</div>
+<script>
+        $(document).ready(function(){
+        $("#login_link").click(function(){
+        $("#account_loader").load("Login.html");
+        });
+        });
+        </script>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>Trailerwatch</title>
+    <meta charset="utf-8" />
+
+</head>
+
+<body>
+    <div id="player">
+        <video id="videoPlayer" controls autoplay>
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div id="info">
+        <div class="infobarEntry">
+            <div class="infobarKey">
+                Titel:
+            </div>
+            <div id="titleValue" class="infobarValue">
+            </div>
+            <div class="infobarKey">
+                Erscheinungsdatum:
+            </div>
+            <div id="dateValue" class="infobarValue">
+            </div>
+            <div class="infobarKey">
+                Altersfreigabe:
+            </div>
+            <div id="ageValue" class="infobarValue">
+            </div>
+            <div class="infobarKey">
+                Genre:
+            </div>
+            <div id="genreValue" class="infobarValue">
+            </div>
+            <div class="infobarKey">
+                Länge:
+            </div>
+            <div id="lengthValue" class="infobarValue">
+            </div>
+            <div class="infobarKey">
+                Schauspieler:
+            </div>
+            <div id="actorValue" class="infobarValue">
+            </div>
+            <div class="infobarKey">
+                Bewertung:
+            </div>
+
+            <div class="ratingContainer">
+                <div id="ratingValue" class="infobarValue"></div>
+                <!-- NEw-->
+                <div id="ratingFunctionality">
+                    <label for="rating">Rating (between 1 and 5):</label>
+                    <input type="number" id="rating" name="rating" min="1" max="5">
+                    <button onclick="addRatingToAFilm()">Add Rating</button>
+                    <!-- NEw-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="carouselContainer">
+        <div id="carousel1" class="carouselHorizontal"></div>
+    </div>
+
+    <div>
+        <div class="comment">
+            <textarea id="addCommentTextArea" rows="5" cols="50"
+                placeholder="Schreibe hier deinen Kommentar..."></textarea>
+        </div>
+
+        <button id="sendCommentButton" onclick="addCommentForAFilm()">Kommentieren</button>
+        <div class="commentArea" id="commentArea"></div>
+    </div>
+
+
+    <link rel="stylesheet" href="css/comments.css">
+    <link rel="stylesheet" href="css/rating.css">
+</body>
+
+</html>

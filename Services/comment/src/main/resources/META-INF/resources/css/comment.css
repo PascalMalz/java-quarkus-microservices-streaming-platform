@@ -1,0 +1,25 @@
+body {
+    background: black;
+}
+
+.commentArea {
+    padding: 10px;
+}
+
+.comment {
+    background: grey;
+    margin: 10px;
+}
+
+#addCommentText {
+    color: black;
+}
+
+.commentText {
+    color: black;
+}
+
+#sendCommentButton {
+    align-content: end;
+    margin-right: 20px;
+}

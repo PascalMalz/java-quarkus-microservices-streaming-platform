@@ -1,0 +1,3 @@
+docker exec -it postgres_account bash
+\dt+
+select * from account;

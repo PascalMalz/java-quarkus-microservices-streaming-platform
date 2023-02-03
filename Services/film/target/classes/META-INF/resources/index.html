@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="stylesheet" href="css/player.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="css/modal.css">
+	<link rel="stylesheet" href="css/carousel.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<title>Trailerwatch</title>
+</head>
+
+
+<body>
+	<header id="header">
+		<a class="icon" onclick="toggleMenu()">
+			<i class="fa fa-bars"></i>
+		</a>
+		<div id="headLeftBox">
+			<a onclick="loadStartScreen()" id="logo"><img src="pictures/Logo.png" id="logoImage"
+					alt="TrailerWatch Startseite"></a>
+			<a onclick="loadStartScreen()">Home</a>
+			<a href="javascript:void(0)" onclick="showFavouriteList(true)">Favoriten</a>
+			<a href="javascript:void(0)" onclick="showModal('modal_impressum')">Impressum</a>
+		</div>
+		<div id="headRightBox">
+			<div id="searchbar">
+				<input type="text" name="searchInput" placeholder="Search" oninput="dynamicSearch()" id="searchField"
+					maxlength="30">
+				<a id="searchButton" onClick="dynamicSearch()">
+					<i class="fas fa-search"></i>
+				</a>
+			</div>
+			<a href="javascript:void(0)" class="logout" onclick="logout()">Abmelden</a>
+		</div>
+	</header>
+
+	<div id="main">
+		<div class="liste">
+			<div id="carousel1" class="carouselHorizontal"></div>
+			<div id="carousel2" class="carouselHorizontal"></div>
+			<div id="carousel3" class="carouselHorizontal"></div>
+		</div>
+	</div>
+
+	<div id="modal"></div>
+
+	<!-- Snackbar -->
+	<div id="notificationBar">
+		<div id="snackbar"></div>
+	</div>
+
+	<script src="javascript/player.js"></script>
+	<script src="javascript/carouselInit.js"></script>
+	<script src="javascript/index.js"></script>
+	<script src="javascript/carousel.js"></script>
+	<script src="javascript/login.js"></script>
+	<script src="https://kit.fontawesome.com/358402c2f9.js"></script>
+	<script src="javascript/rating.js"></script>
+	<script src="javascript/comments.js"></script>
+</body>
+
+</html>

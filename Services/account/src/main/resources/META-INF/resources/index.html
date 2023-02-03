@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<meta charset="UTF-8">
+<head>
+    <title>Trailerwatch</title>
+    <meta charset="utf-8" />
+
+    <link href="css/login.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+		$(document).ready(function(){
+			$("#registrationButton").click(function(){
+				$("#account_loader").load("Registration.html");
+			});
+		});
+	</script>
+
+</head>
+<body>
+	<div class="account" id="account_loader">
+		<div class="login_form">
+			<div class="modal-content">
+				<div class="modal-header">
+					<img src="img/Logo.png" id="img_logo" alt="Logo">
+				</div>
+				<h1>Login</h1>
+				<div class="modal-body">
+					<label for="email">E-Mail</label>
+					<input type="text" name="email" id="email" placeholder="E-Mail-Adresse" required />
+					<label for="password">Passwort</label>
+					<input type="password" name="password" id="password" placeholder="Passwort" required />
+					<button onclick="login()" id="loginButton">Anmelden</button>
+					<p class="login_register" id="registrationButton">Noch keinen Account? <a>Klicke hier!</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/login.js"></script>
+	<script src="js/registration.js"></script>
+</body>
+</html>
